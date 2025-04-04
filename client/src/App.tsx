@@ -1,0 +1,45 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/queryClient";
+import { Toaster } from "@/components/ui/toaster";
+import Header from "./components/Header";
+import MobileMenu from "./components/MobileMenu";
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import ServicesSection from "./components/ServicesSection";
+import PortfolioSection from "./components/PortfolioSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+import PortalBackground from "./components/PortalBackground";
+import { useState } from "react";
+
+function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div className="min-h-screen bg-spaceblack font-sans">
+        <PortalBackground />
+        
+        <Header onMenuToggle={toggleMobileMenu} />
+        <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+        
+        <main className="pt-20">
+          <HeroSection />
+          <AboutSection />
+          <ServicesSection />
+          <PortfolioSection />
+          <ContactSection />
+        </main>
+        
+        <Footer />
+      </div>
+      <Toaster />
+    </QueryClientProvider>
+  );
+}
+
+export default App;

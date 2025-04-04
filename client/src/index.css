@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --portal: 187 100% 40%;
+    --toxic: 83 57% 55%;
+    --warmred: 0 100% 71%;
+    --spaceblack: 0 0% 10%;
+    --cleanwhite: 0 0% 96%;
+    --darkportal: 187 100% 31%;
+    --darktoxic: 83 47% 44%;
+    --glass: 0 0% 100% / 0.1;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-spaceblack text-cleanwhite font-sans;
+    background-image: 
+      radial-gradient(rgba(151, 206, 76, 0.1) 1px, transparent 1px),
+      radial-gradient(rgba(0, 181, 204, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px, 25px 25px;
+    background-position: 0 0, 15px 15px;
+  }
+  
+  .glass {
+    @apply bg-spaceblack/60 backdrop-blur-lg border border-white/10;
+  }
+  
+  .portal-card {
+    @apply relative overflow-hidden;
+  }
+  
+  .portal-card::before {
+    content: '';
+    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] -z-10;
+    background: conic-gradient(
+      transparent, 
+      rgba(0, 181, 204, 0.2), 
+      transparent 30%
+    );
+    animation: portal 8s linear infinite;
+  }
+  
+  .portal-btn {
+    @apply relative overflow-hidden z-[1];
+  }
+  
+  .portal-btn::after {
+    content: '';
+    @apply absolute top-0 -left-full w-full h-full -z-10;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+  
+  .portal-btn:hover::after {
+    @apply left-full;
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 5px #00B5CC, 0 0 10px rgba(0, 181, 204, 0.5);
+  }
+  
+  .tab-active {
+    @apply border-portal text-portal;
+  }
+  
+  .social-icon {
+    @apply transition-all duration-300;
+  }
+  
+  .social-icon:hover {
+    @apply translate-y-[-3px] scale-110;
+  }
+  
+  .code-text {
+    @apply font-code bg-black/20 rounded px-1;
+  }
+  
+  .skill-bar-fill {
+    @apply transition-[width] duration-1000 ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  @keyframes portal {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-pulse {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-portal {
+    animation: portal 15s linear infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Animation delays */
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+  
+  .delay-800 {
+    animation-delay: 0.8s;
+  }
+  
+  .delay-1200 {
+    animation-delay: 1.2s;
+  }
+}
