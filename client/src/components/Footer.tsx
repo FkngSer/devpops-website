@@ -28,6 +28,9 @@ const Footer = () => {
           <a href="https://x.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
             <i className="fab fa-x-twitter"></i>
           </a>
+          <a href="https://ro.linkedin.com/in/sergiupopa89" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
           <a href="https://www.instagram.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
             <i className="fab fa-instagram"></i>
           </a>

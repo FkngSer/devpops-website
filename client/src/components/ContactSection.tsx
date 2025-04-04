@@ -101,11 +101,11 @@ const ContactSection = () => {
                 <span className="text-gray-500">Email coming soon</span>
               </div>
               
-              <a href="https://linkedin.com/in/sergiupopa" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
+              <a href="https://ro.linkedin.com/in/sergiupopa89" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-linkedin-in text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>linkedin.com/in/sergiupopa</span>
+                <span>linkedin.com/in/sergiupopa89</span>
               </a>
               
               <a href="https://discord.com/users/906947993217925140" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
