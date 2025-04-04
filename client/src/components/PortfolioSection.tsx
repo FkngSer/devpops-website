@@ -136,9 +136,9 @@ const portfolioProjects = [
     image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Web3",
     categoryClass: "bg-portal/80",
-    title: "NFT Portal Marketplace",
+    title: "MultiversX NFT Marketplace",
     description: "Designed and implemented the infrastructure for a high-volume NFT marketplace handling 10,000+ daily transactions.",
-    technologies: ["Ethereum", "IPFS", "GraphQL"],
+    technologies: ["MultiversX", "IPFS", "GraphQL"],
     techClass: "text-toxic"
   },
   {
@@ -154,9 +154,9 @@ const portfolioProjects = [
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Web3",
     categoryClass: "bg-portal/80",
-    title: "CryptoWatcher Bot",
-    description: "Developed a Discord bot for crypto communities, providing real-time alerts, wallet verification and community management.",
-    technologies: ["Discord.js", "Node.js", "Web3.js"],
+    title: "Solana Token Tracker",
+    description: "Developed a Discord bot for Solana communities, providing real-time alerts, wallet verification and community management.",
+    technologies: ["Solana", "Node.js", "Discord.js"],
     techClass: "text-toxic"
   },
   {
@@ -172,9 +172,9 @@ const portfolioProjects = [
     image: "https://images.unsplash.com/photo-1560732488-7b5f4d54f584?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Web3",
     categoryClass: "bg-portal/80",
-    title: "DeFi Infrastructure",
-    description: "Engineered the backend infrastructure for a cross-chain DeFi protocol handling millions in daily transaction volume.",
-    technologies: ["Solidity", "Hardhat", "The Graph"],
+    title: "Cross-Chain DeFi Platform",
+    description: "Engineered the backend infrastructure for a cross-chain DeFi protocol connecting MultiversX, Solana, Base, and TON.",
+    technologies: ["MultiversX", "Solana", "Base"],
     techClass: "text-toxic"
   }
 ];

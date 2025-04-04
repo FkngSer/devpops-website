@@ -38,15 +38,17 @@ const AboutSection = () => {
               My mission is to build and maintain infrastructure that's not just robust and scalable, but also secure enough to withstand any attack. I've got the skills, the tools, and a healthy obsession with all things tech.
             </p>
             <p className="text-lg leading-relaxed mb-8">
-              When I'm not wrangling servers, I'm diving deep into the decentralized universe of <span className="text-toxic font-medium">Web3</span>. I'm exploring blockchain technologies, smart contracts, and dApps, bringing my DevOps expertise to this brave new world.
+              When I'm not wrangling servers, I'm diving deep into the decentralized universe of <span className="text-toxic font-medium">Web3</span>. With expertise in <span className="text-portal font-medium">MultiversX</span> and <span className="text-toxic font-medium">Solana</span>, along with experience in Base, TON, and Bitcoin, I bring DevOps expertise to these thriving blockchain ecosystems.
             </p>
             
             {/* Skills */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               <SkillBar label="DevOps" percentage={95} color="portal" isInView={isInView} delay={0.4} />
               <SkillBar label="Kubernetes" percentage={90} color="toxic" isInView={isInView} delay={0.6} />
-              <SkillBar label="Web3" percentage={85} color="portal" isInView={isInView} delay={0.8} />
-              <SkillBar label="Cloud Platforms" percentage={92} color="toxic" isInView={isInView} delay={1.0} />
+              <SkillBar label="MultiversX" percentage={88} color="portal" isInView={isInView} delay={0.8} />
+              <SkillBar label="Solana" percentage={85} color="toxic" isInView={isInView} delay={1.0} />
+              <SkillBar label="Cloud Platforms" percentage={92} color="portal" isInView={isInView} delay={1.2} />
+              <SkillBar label="TON & Base" percentage={75} color="toxic" isInView={isInView} delay={1.4} />
             </div>
           </motion.div>
           

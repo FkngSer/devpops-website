@@ -53,7 +53,8 @@ const HeroSection = () => {
                 <span className="inline-block py-1 px-2 bg-spaceblack/50 rounded text-sm font-code text-gray-300 border border-gray-800">AWS</span>
                 <span className="inline-block py-1 px-2 bg-spaceblack/50 rounded text-sm font-code text-gray-300 border border-gray-800">Docker</span>
                 <span className="inline-block py-1 px-2 bg-spaceblack/50 rounded text-sm font-code text-gray-300 border border-gray-800">Kubernetes</span>
-                <span className="inline-block py-1 px-2 bg-spaceblack/50 rounded text-sm font-code text-gray-300 border border-gray-800">Ethereum</span>
+                <span className="inline-block py-1 px-2 bg-spaceblack/50 rounded text-sm font-code text-gray-300 border border-gray-800">MultiversX</span>
+                <span className="inline-block py-1 px-2 bg-spaceblack/50 rounded text-sm font-code text-gray-300 border border-gray-800">Solana</span>
               </div>
             </motion.div>
           </motion.div>
@@ -79,7 +80,7 @@ const HeroSection = () => {
               </div>
               <div className="absolute -bottom-4 left-0 animate-float delay-800">
                 <div className="w-12 h-12 rounded-lg bg-spaceblack border border-portal flex items-center justify-center">
-                  <span className="text-portal text-sm font-code">ETH</span>
+                  <span className="text-portal text-sm font-code">SOL</span>
                 </div>
               </div>
               <div className="absolute top-20 -left-8 animate-float delay-1200">

@@ -224,14 +224,14 @@ const web3Services = [
   {
     icon: "fas fa-code-branch",
     title: "dApp Infrastructure",
-    description: "Robust infrastructure design and deployment for decentralized applications.",
-    features: ["Scalable architectures", "Backend integration", "API development"]
+    description: "Robust infrastructure design and deployment for decentralized applications on MultiversX, Solana, and more.",
+    features: ["Scalable architectures", "Cross-chain integration", "API development"]
   },
   {
     icon: "fas fa-link",
     title: "Smart Contract Integration",
     description: "Seamless integration of smart contracts with frontend and backend systems.",
-    features: ["Contract interaction", "Web3.js implementation", "Multi-chain support"]
+    features: ["MultiversX & Solana support", "Cross-chain bridges", "Wallet connectivity"]
   },
   {
     icon: "fas fa-robot",
@@ -242,20 +242,20 @@ const web3Services = [
   {
     icon: "fas fa-gem",
     title: "NFT Infrastructure",
-    description: "Complete NFT project setup from minting to marketplace integration.",
+    description: "Complete NFT project setup on MultiversX, Solana, and other chains.",
     features: ["IPFS integration", "Minting dApps", "Metadata management"]
   },
   {
     icon: "fas fa-chart-line",
-    title: "DeFi Integration",
-    description: "Implementation of decentralized finance protocols and services.",
-    features: ["DEX integration", "Liquidity solutions", "Yield optimization"]
+    title: "DeFi Solutions",
+    description: "Implementation of decentralized finance protocols and services across multiple chains.",
+    features: ["MultiversX & Solana DeFi", "TON & Base integration", "Cross-chain bridging"]
   },
   {
     icon: "fas fa-shield-alt",
     title: "Web3 Security",
-    description: "Security assessments and best practices implementation for Web3 projects.",
-    features: ["Contract audits", "Frontend security", "Secure key management"]
+    description: "Security assessments and best practices implementation for blockchain projects.",
+    features: ["Contract audits", "Infrastructure hardening", "Secure key management"]
   }
 ];
 
