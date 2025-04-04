@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width-width, initial-scale=1.0" />
+    <title>DevpOps - Sergiu Popa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+    <style>
+      /* Custom styles for the Rick and Morty theme */
+      body {
+        font-family: 'Inter', sans-serif; /* Default font */
+        background-color: #151e28; /* Dark background (space-like) */
+        color: #f5f5f5; /* Light text */
+      }
+      .heading-font {
+        font-family: 'Press Start 2P', monospace; /* Sci-fi font */
+      }
+      header {
+        background-color: rgba(21, 30, 40, 0.8); /* Dark, slightly transparent header */
+        backdrop-filter: blur(10px);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      }
+      header a {
+        color: #b0f115; /* Bright green (Rick and Morty portal color) */
+      }
+      header a:hover {
+        color: #e6fc32; /* Brighter green on hover */
+      }
+      .section-title {
+        font-family: 'Press Start 2P', monospace;
+        color: #b0f115;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        text-shadow: 0 0 8px rgba(176, 241, 21, 0.8);
+      }
+      .expertise-card {
+        background-color: rgba(255, 255, 255, 0.06); /* Glassmorphism effect - very subtle */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        backdrop-filter: blur(10px);
+      }
+      .expertise-card:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+      }
+      .expertise-card h3 {
+        color: #fff;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-family: 'Press Start 2P', monospace;
+      }
+      .expertise-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: #ddd;
+        line-height: 1.7;
+      }
+      .expertise-card li::before {
+        content: '▶';  /* Use a fancy arrow */
+        color: #b0f115; /* Portal green */
+        margin-right: 0.5rem;
+      }
+      #web3 h3 {
+        color: #b0f115;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 5px rgba(176, 241, 21, 0.8);
+      }
+      #web3 ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+        color: #ddd;
+        line-height: 1.7;
+      }
+       #web3 li::before {
+        content: '⚛';
+        color: #b0f115;
+        margin-right: 0.5rem;
+       }
+      .contact-box {
+        background-color: rgba(255, 255, 255, 0.06); /* Glassmorphism */
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .contact-box h2 {
+        color: #fff;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-family: 'Press Start 2P', monospace;
+        text-shadow: 0 0 8px rgba(176, 241, 21, 0.8);
+      }
+      .contact-box p {
+        color: #ddd;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      .contact-box a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background-color: #b0f115;
+        color: #151e28;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        font-family: 'Press Start 2P', monospace;
+        text-decoration: none;
+      }
+      .contact-box a:hover {
+        background-color: #e6fc32;
+        transform: scale(1.05);
+      }
+
+      #hamburger-btn {
+        color: #b0f115;
+      }
+
+      #mobile-menu {
+        background-color: rgba(21, 30, 40, 0.95);
+        backdrop-filter: blur(15px);
+      }
+
+      #mobile-menu a {
+        color: #b0f115;
+        font-family: 'Press Start 2P', monospace;
+        text-shadow: 0 0 5px rgba(176, 241, 21, 0.8);
+      }
+      #mobile-menu a:hover {
+        color: #e6fc32;
+      }
+      #close-menu-btn{
+        color: #b0f115;
+      }
+
+      .name-graphic-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        overflow: hidden; /* Added to hide the overflowed part of the animation */
+        perspective: 800px; /* Add perspective for 3D effect */
+      }
+
+      .name-graphic-devpops {
+        font-family: 'Press Start 2P', monospace;
+        color: #b0f115;
+        font-size: 2rem;
+        text-shadow: 0 0 10px rgba(176, 241, 21, 0.8);
+        transition: all 0.8s ease; /* Increased transition time for portal effect */
+        transform: translateZ(0); /* Ensure it's not translated in Z initially */
+      }
+
+      .name-graphic-sergiu {
+        font-family: 'Inter', sans-serif;
+        color: #ffffff;
+        font-size: 3rem;
+        font-weight: 700;
+        opacity: 0; /* Initially hidden */
+        transform: translateZ(-500px) rotateY(180deg); /* Start far away and rotated */
+        transition: opacity 0.8s ease, transform 0.8s ease; /* Match devpops transition */
+      }
+
+      .name-graphic-container:hover .name-graphic-devpops {
+        transform: translateZ(300px) rotateY(-180deg); /* Move DevpOps forward and rotate it */
+        opacity: 0;
+      }
+
+      .name-graphic-container:hover .name-graphic-sergiu {
+        opacity: 1; /* Fade in Sergiu Popa on hover */
+        transform: translateZ(0) rotateY(0deg); /* Move Sergiu Popa to origin and rotate it */
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px rgba(176, 241, 21, 0.8);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(176, 241, 21, 0.5);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <header class="bg-gray-800 bg-opacity-80 shadow-md py-4 fixed top-0 w-full z-10">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-xl font-bold text-green-400 heading-font">DevpOps</a>
+          <nav class="hidden md:block">
+            <ul class="flex space-x-6">
+              <li><a href="#about" class="text-gray-300 hover:text-green-300 transition duration-300">About</a></li>
+              <li><a href="#expertise" class="text-gray-300 hover:text-green-300 transition duration-300">Expertise</a></li>
+              <li><a href="#web3" class="text-gray-300 hover:text-green-300 transition duration-300">Web3</a></li>
+              <li><a href="#contact" class="text-gray-300 hover:text-green-300 transition duration-300">Contact</a></li>
+            </ul>
+          </nav>
+          <button id="hamburger-btn" class="md:hidden text-gray-300 focus:outline-none" aria-label="Toggle Navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50">
+      <div class="bg-gray-800 w-80 h-full absolute right-0 p-6">
+        <div class="flex justify-end mb-4">
+          <button id="close-menu-btn" class="text-gray-300 focus:outline-none" aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="block">
+          <ul class="space-y-4">
+            <li><a href="#about" class="block text-lg text-green-300 hover:text-green-200 transition duration-300">About</a></li>
+            <li><a href="#expertise" class="block text-lg text-green-300 hover:text-green-200 transition duration-300">Expertise</a></li>
+            <li><a href="#web3" class="block text-lg text-green-300 hover:text-green-200 transition duration-300">Web3</a></li>
+            <li><a href="#contact" class="block text-lg text-green-300 hover:text-green-200 transition duration-300">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <main class="pt-20">
+      <section id="about" class="container mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-green-400 mb-4 heading-font">About Me</h2>
+            <p class="text-gray-300 leading-relaxed">
+              Hey there! I'm Sergiu Popa, a DevOps Engineer and the mind behind <span class="font-semibold text-green-400">DevpOps</span>.
+              I'm all about optimizing software development and deployment processes with a touch of
+              out-of-this-world (and sometimes slightly absurd) efficiency.
+            </p>
+            <p class="text-gray-300 leading-relaxed mt-4">
+              My mission is to build and maintain infrastructure that's not just robust and scalable,
+              but also secure enough to withstand any attack. I've got the skills, the tools,
+              and a healthy obsession with all things tech.
+            </p>
+            <p class="text-gray-300 leading-relaxed mt-4">
+              But wait, there's more! When I'm not wrangling servers, I'm diving deep into the
+              decentralized universe of <span class="font-semibold text-green-400">Web3</span>.  I'm exploring the wild west of
+              blockchain, smart contracts, and dApps, and I'm bringing my DevOps expertise to this
+              brave new world.
+            </p>
+          </div>
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <div class="name-graphic-container">
+              <h2 class="name-graphic-devpops">DevpOps</h2>
+              <h1 class="name-graphic-sergiu">Sergiu Popa</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="expertise" class="bg-gray-800 py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="section-title">Expertise</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="expertise-card">
+              <h3 class="text-green-400">DevOps</h3>
+              <ul class="list-disc list-inside">
+                <li>Cloud Infrastructure (AWS, Azure, GCP... and beyond!)</li>
+                <li>Automation & Configuration Management (Ansible, Terraform, you name it)</li>
+                <li>CI/CD Pipelines (From Jenkins to the Citadel of Ricks)</li>
+                <li>Containerization (Docker, Kubernetes, and other pocket universes)</li>
+                <li>Monitoring & Logging (Keeping an eye on all timelines)</li>
+                <li>Infrastructure as Code (Terraform, YAML)</li>
+                <li>System Administration (Linux... Wubba Lubba Dub Dub!)</li>
+              </ul>
+            </div>
+            <div class="expertise-card">
+              <h3 class="text-green-400">Web3</h3>
+              <ul class="list-disc list-inside">
+                <li>Decentralized Applications (dApps... built across the multiverse)</li>
+                <li>Smart Contract Interaction (REST APIs)</li>
+                <li>Blockchain Technologies (From Ethereum to... who knows?)</li>
+                <li>Web3 Infrastructure (Building the rails for the decentralized web)</li>
+                <li>Decentralized Finance (DeFi)</li>
+                <li>NFTs (I've seen some weird stuff)</li>
+                <li>Discord/Telegram setup & bots</li>
+              </ul>
+            </div>
+            <div class="expertise-card">
+              <h3 class="text-green-400">Skills</h3>
+              <ul class="list-disc list-inside">
+                <li>Problem Solving (I solve problems you didn't even know you had)</li>
+                <li>Team Collaboration (Even with alternate versions of myself)</li>
+                <li>Communication (I can explain quantum physics to a Morty)</li>
+                <li>Continuous Learning (The multiverse is a big place)</li>
+                <li>Adaptability (I'm comfortable in any reality)</li>
+                <li>Project Management (Keeping projects on track across dimensions)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="web3" class="container mx-auto px-4 py-16">
+        <h2 class="section-title">Web3 Projects and Involvement</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-green-400">Projects</h3>
+            <ul class="list-disc list-inside">
+              <li>Developing a decentralized exchange (DEX) -  flavor</li>
+              <li>Building a NFT marketplace (for truly unique digital assets)</li>
+              <li>Implementing smart contracts for a DeFi platform (yield farming, Rick style)</li>
+              <li>Consulting on Web3 infrastructure (helping others navigate the chaos)</li>
+            </ul>
+            <p class="text-gray-300 leading-relaxed mt-4">
+              These are some of the Web3 projects I'm currently working on or planning to work on. I'm passionate
+              about the potential of Web3 to disrupt traditional systems and empower individuals.
+              My DevOps skills are not limited to traditional web2 companies; I can bring my expertise to Web3 startups and
+              teams of all sizes, helping them build scalable, secure, and efficient decentralized applications.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-green-400">Community</h3>
+            <p class="text-gray-300 leading-relaxed">
+              I'm also actively involved in the Web3 community, participating in hackathons,
+              contributing to open-source projects, and sharing my knowledge with others.  I've even
+              given a few talks (some in very strange places).
+            </p>
+            <p class="text-gray-300 leading-relaxed mt-4">
+              I can also help Web3 projects with community building and engagement by creating and managing Discord servers and Telegram channels,
+              and developing custom Discord and Telegram bots to automate tasks and enhance user experience.
+            </p>
+            <p class="text-gray-300 leading-relaxed mt-4">
+              I'm always looking for new opportunities to collaborate on exciting Web3 projects.  If you're
+              building something cool, let's chat!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-gray-800 py-16">
+        <div class="container mx-auto px-4">
+          <div class="contact-box">
+            <h2 class="text-green-400 heading-font">Contact Me</h2>
+            <p class="text-gray-300 leading-relaxed mb-8">
+              Ready to take your DevOps or Web3 project to the next level?  Or just want to discuss the
+              latest Rick and Morty episode?  Get in touch!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="https://ro.linkedin.com/in/sergiupopa89" target="_blank" rel="noopener noreferrer" class="hover:bg-green-600">
+                Let's Talk on LinkedIn
+              </a>
+              <a href="https://x.com/devpops_" target="_blank" rel="noopener noreferrer" class="hover:bg-green-600">
+                Follow me on X
+              </a>
+              <a href="https://www.instagram.com/devpops_" target="_blank" rel="noopener noreferrer" class="hover:bg-green-600">
+                Check out my Instagram
+              </a>
+              <a href="https://www.tiktok.com/@devpops_" target="_blank" rel="noopener noreferrer" class="hover:bg-green-600">
+                Watch me on TikTok
+              </a>
+              <a href="https://t.me/devp0ps" target="_blank" rel="noopener noreferrer" class="hover:bg-green-600">
+                Join me on Telegram
+              </a>
+              <a href="https://discord.com/users/906947993217925140" target="_blank" rel="noopener noreferrer" class="hover:bg-green-600">
+                Connect on Discord
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-6">
+      <div class="container mx-auto px-4 text-center">
+        &copy; 2024 DevpOps. All rights reserved.  (Probably.)
+      </div>
+    </footer>
+
+    <script>
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMenuBtn = document.getElementById("close-menu-btn");
+      const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+      const navLinks = document.querySelectorAll('header a[href^="#"]');
+      const sections = document.querySelectorAll('section');
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      hamburgerBtn.addEventListener("click", toggleMobileMenu);
+      closeMenuBtn.addEventListener("click", toggleMobileMenu);
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", toggleMobileMenu);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && event.target !== hamburgerBtn) {
+          toggleMobileMenu();
+        }
+      });
+
+      function updateActiveNavLink() {
+        let currentSectionId = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').slice(1) === currentSectionId) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNavLink);
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
