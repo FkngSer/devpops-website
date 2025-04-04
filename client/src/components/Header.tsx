@@ -22,11 +22,11 @@ const Header: FC<HeaderProps> = ({ onMenuToggle }) => {
           
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="font-space text-cleanwhite hover:text-portal transition-colors">About</a>
-            <a href="#services" className="font-space text-cleanwhite hover:text-portal transition-colors">Services</a>
-            <a href="#portfolio" className="font-space text-cleanwhite hover:text-portal transition-colors">Portfolio</a>
-            <a href="#contact" className="font-space text-cleanwhite hover:text-portal transition-colors">Contact</a>
-            <a href="#contact" className="font-space bg-portal text-spaceblack px-4 py-2 rounded hover:bg-darkportal transition-colors">Get Started</a>
+            <a href="#about" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}); }}>About</a>
+            <a href="#services" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({behavior: 'smooth'}); }}>Services</a>
+            <a href="#portfolio" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'}); }}>Portfolio</a>
+            <a href="#contact" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Contact</a>
+            <a href="#contact" className="font-space bg-portal text-spaceblack px-4 py-2 rounded hover:bg-darkportal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Get Started</a>
           </nav>
           
           {/* Mobile Menu Button */}

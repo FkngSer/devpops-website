@@ -63,16 +63,16 @@ const AboutSection = () => {
               <h3 className="font-space font-medium text-xl mb-1">Sergiu Popa</h3>
               <p className="font-code text-toxic text-sm mb-3">DevOps Engineer & Web3 Specialist</p>
               <div className="flex justify-center space-x-4">
-                <a href="#" className="social-icon text-portal hover:text-toxic transition-colors">
+                <a href="https://linkedin.com/in/sergiupopa" target="_blank" rel="noopener noreferrer" className="social-icon text-portal hover:text-toxic transition-colors">
                   <i className="fab fa-linkedin text-xl"></i>
                 </a>
-                <a href="#" className="social-icon text-portal hover:text-toxic transition-colors">
-                  <i className="fab fa-twitter text-xl"></i>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="social-icon text-portal hover:text-toxic transition-colors">
+                  <i className="fab fa-x-twitter text-xl"></i>
                 </a>
-                <a href="#" className="social-icon text-portal hover:text-toxic transition-colors">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon text-portal hover:text-toxic transition-colors">
                   <i className="fab fa-github text-xl"></i>
                 </a>
-                <a href="#" className="social-icon text-portal hover:text-toxic transition-colors">
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="social-icon text-portal hover:text-toxic transition-colors">
                   <i className="fab fa-discord text-xl"></i>
                 </a>
               </div>

@@ -31,11 +31,11 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               </button>
             </div>
             <nav className="mt-10 flex flex-col items-center space-y-6">
-              <a href="#about" onClick={onClose} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">About</a>
-              <a href="#services" onClick={onClose} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Services</a>
-              <a href="#portfolio" onClick={onClose} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Portfolio</a>
-              <a href="#contact" onClick={onClose} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Contact</a>
-              <a href="#contact" onClick={onClose} className="font-space bg-portal text-spaceblack px-6 py-3 rounded hover:bg-darkportal transition-colors mt-4">Get Started</a>
+              <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">About</a>
+              <a href="#services" onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Services</a>
+              <a href="#portfolio" onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Portfolio</a>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Contact</a>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space bg-portal text-spaceblack px-6 py-3 rounded hover:bg-darkportal transition-colors mt-4">Get Started</a>
             </nav>
           </div>
         </motion.div>

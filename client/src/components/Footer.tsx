@@ -17,10 +17,10 @@ const Footer = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <a href="#about" className="text-gray-400 hover:text-portal transition-colors">About</a>
-            <a href="#services" className="text-gray-400 hover:text-portal transition-colors">Services</a>
-            <a href="#portfolio" className="text-gray-400 hover:text-portal transition-colors">Portfolio</a>
-            <a href="#contact" className="text-gray-400 hover:text-portal transition-colors">Contact</a>
+            <a href="#about" className="text-gray-400 hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}); }}>About</a>
+            <a href="#services" className="text-gray-400 hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({behavior: 'smooth'}); }}>Services</a>
+            <a href="#portfolio" className="text-gray-400 hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'}); }}>Portfolio</a>
+            <a href="#contact" className="text-gray-400 hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Contact</a>
           </div>
         </div>
       </div>

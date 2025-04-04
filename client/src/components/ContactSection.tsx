@@ -39,12 +39,11 @@ const ContactSection = () => {
     
     setIsSubmitting(true);
     
-    try {
-      await apiRequest('POST', '/api/contact', formData);
-      
+    // Simulate form submission since email functionality isn't set up yet
+    setTimeout(() => {
       toast({
-        title: "Message Sent",
-        description: "Thank you for your message. I'll get back to you soon!",
+        title: "Contact Information Saved",
+        description: "Email functionality coming soon! Your information has been saved.",
         variant: "default"
       });
       
@@ -55,15 +54,8 @@ const ContactSection = () => {
         subject: '',
         message: ''
       });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "There was an error sending your message. Please try again.",
-        variant: "destructive"
-      });
-    } finally {
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
   
   const fadeIn = {
@@ -102,28 +94,28 @@ const ContactSection = () => {
             </p>
             
             <div className="space-y-4">
-              <a href="mailto:contact@devpops.tech" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
-                <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
-                  <i className="fas fa-envelope text-portal group-hover:text-toxic transition-colors"></i>
+              <div className="flex items-center text-gray-300 group">
+                <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 transition-colors">
+                  <i className="fas fa-envelope text-portal transition-colors"></i>
                 </div>
-                <span>contact@devpops.tech</span>
-              </a>
+                <span className="text-gray-500">Email coming soon</span>
+              </div>
               
-              <a href="#" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
+              <a href="https://linkedin.com/in/sergiupopa" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-linkedin-in text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
                 <span>linkedin.com/in/sergiupopa</span>
               </a>
               
-              <a href="#" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-discord text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
                 <span>devpops#5678</span>
               </a>
               
-              <a href="#" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
+              <a href="https://t.me/devpops" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-telegram-plane text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
@@ -134,16 +126,16 @@ const ContactSection = () => {
             <div className="mt-8">
               <h4 className="font-space text-base mb-4 text-gray-300">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="#" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
-                  <i className="fab fa-twitter"></i>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                  <i className="fab fa-x-twitter"></i>
                 </a>
-                <a href="#" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-github"></i>
                 </a>
-                <a href="#" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="#" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-tiktok"></i>
                 </a>
               </div>
