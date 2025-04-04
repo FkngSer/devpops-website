@@ -23,6 +23,24 @@ const Footer = () => {
             <a href="#contact" className="text-gray-400 hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Contact</a>
           </div>
         </div>
+        
+        <div className="mt-8 flex justify-center space-x-6">
+          <a href="https://x.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+            <i className="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+            <i className="fab fa-tiktok"></i>
+          </a>
+          <a href="https://t.me/devp0ps" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+            <i className="fab fa-telegram-plane"></i>
+          </a>
+          <a href="https://discord.com/users/906947993217925140" target="_blank" rel="noopener noreferrer" className="social-icon w-8 h-8 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+            <i className="fab fa-discord"></i>
+          </a>
+        </div>
       </div>
     </footer>
   );

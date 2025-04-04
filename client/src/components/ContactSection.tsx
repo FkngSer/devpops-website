@@ -108,34 +108,34 @@ const ContactSection = () => {
                 <span>linkedin.com/in/sergiupopa</span>
               </a>
               
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
+              <a href="https://discord.com/users/906947993217925140" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-discord text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>devpops#5678</span>
+                <span>discord.com/users/906947993217925140</span>
               </a>
               
-              <a href="https://t.me/devpops" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
+              <a href="https://t.me/devp0ps" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-telegram-plane text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>t.me/devpops</span>
+                <span>t.me/devp0ps</span>
               </a>
             </div>
             
             <div className="mt-8">
               <h4 className="font-space text-base mb-4 text-gray-300">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                <a href="https://x.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-x-twitter"></i>
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
-                  <i className="fab fa-github"></i>
+                <a href="https://t.me/devp0ps" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                  <i className="fab fa-telegram-plane"></i>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                <a href="https://www.instagram.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
+                <a href="https://www.tiktok.com/@devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-tiktok"></i>
                 </a>
               </div>
