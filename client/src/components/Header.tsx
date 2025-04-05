@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 interface HeaderProps {
   onMenuToggle: () => void;
@@ -25,21 +26,27 @@ const Header: FC<HeaderProps> = ({ onMenuToggle }) => {
             <a href="#about" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}); }}>About</a>
             <a href="#services" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({behavior: 'smooth'}); }}>Services</a>
             <a href="#portfolio" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'}); }}>Portfolio</a>
+            <a href="#blog" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('blog')?.scrollIntoView({behavior: 'smooth'}); }}>Blog</a>
             <a href="#contact" className="font-space text-cleanwhite hover:text-portal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Contact</a>
             <a href="#contact" className="font-space bg-portal text-spaceblack px-4 py-2 rounded hover:bg-darkportal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Get Started</a>
           </nav>
           
-          {/* Mobile Menu Button */}
-          <button 
-            id="menuBtn" 
-            className="md:hidden text-cleanwhite focus:outline-none"
-            onClick={onMenuToggle}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
+          {/* Theme Toggle and Mobile Menu Button */}
+          <div className="flex items-center space-x-3">
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+            <button 
+              id="menuBtn" 
+              className="md:hidden text-cleanwhite focus:outline-none"
+              onClick={onMenuToggle}
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </header>
