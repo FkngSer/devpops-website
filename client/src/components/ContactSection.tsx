@@ -94,32 +94,25 @@ const ContactSection = () => {
             </p>
             
             <div className="space-y-4">
-              <div className="flex items-center text-gray-300 group">
-                <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 transition-colors">
-                  <i className="fas fa-envelope text-portal transition-colors"></i>
-                </div>
-                <span className="text-gray-500">Email coming soon</span>
-              </div>
-              
               <a href="https://ro.linkedin.com/in/sergiupopa89" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-linkedin-in text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>linkedin.com/in/sergiupopa89</span>
+                <span>LinkedIn</span>
               </a>
               
               <a href="https://discord.com/users/906947993217925140" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-discord text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>discord.com/users/906947993217925140</span>
+                <span>Discord</span>
               </a>
               
               <a href="https://t.me/devp0ps" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-toxic transition-colors group">
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-telegram-plane text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>t.me/devp0ps</span>
+                <span>Telegram: @devp0ps</span>
               </a>
             </div>
             
@@ -127,7 +120,9 @@ const ContactSection = () => {
               <h4 className="font-space text-base mb-4 text-gray-300">Follow Me</h4>
               <div className="flex space-x-4">
                 <a href="https://x.com/devpops_" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
-                  <i className="fab fa-x-twitter"></i>
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                  </svg>
                 </a>
                 <a href="https://t.me/devp0ps" target="_blank" rel="noopener noreferrer" className="social-icon w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center text-portal hover:text-toxic hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-telegram-plane"></i>
