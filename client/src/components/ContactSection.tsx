@@ -59,7 +59,7 @@ const ContactSection = () => {
                 <div className="w-10 h-10 rounded-full bg-portal/10 flex items-center justify-center mr-3 group-hover:bg-toxic/10 transition-colors">
                   <i className="fab fa-telegram-plane text-portal group-hover:text-toxic transition-colors"></i>
                 </div>
-                <span>Telegram: @devp0ps</span>
+                <span>Telegram</span>
               </a>
             </div>
             
