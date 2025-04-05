@@ -14,6 +14,7 @@ import PortalBackground from "./components/PortalBackground";
 import { useState } from "react";
 import { Route, Switch } from "wouter";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import CaseStudyDetailPage from "./pages/CaseStudyDetailPage";
 import NotFound from "./pages/not-found";
 
 function HomePage() {
@@ -51,6 +52,7 @@ function App() {
         <Switch>
           <Route path="/" component={HomePage} />
           <Route path="/blog/:id" component={BlogDetailPage} />
+          <Route path="/case-study/:id" component={CaseStudyDetailPage} />
           <Route component={NotFound} />
         </Switch>
       </div>

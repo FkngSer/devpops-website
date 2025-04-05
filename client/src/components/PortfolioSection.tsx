@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLocation } from 'wouter';
+import { caseStudies } from '../data/CaseStudyData';
 
 const PortfolioSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -24,7 +25,8 @@ const PortfolioSection = () => {
   
   const handleViewAllProjects = (e: React.MouseEvent) => {
     e.preventDefault();
-    setLocation('/blog/1');
+    // In the future, we might create a dedicated projects page
+    setLocation('/#portfolio');
   };
 
   return (
@@ -51,24 +53,22 @@ const PortfolioSection = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {portfolioProjects.map((project, index) => (
+          {caseStudies.map((project, index) => (
             <PortfolioCard
-              key={index}
-              index={index}
-              image={project.image}
+              key={project.id}
+              id={project.id}
+              image={project.thumbnailImage}
               category={project.category}
-              categoryClass={project.categoryClass}
               title={project.title}
               description={project.description}
-              technologies={project.technologies}
-              techClass={project.techClass}
+              technologies={project.technologies.slice(0, 3)} // Show only first 3 technologies
             />
           ))}
         </motion.div>
         
         <div className="flex justify-center mt-12">
           <a 
-            href="/blog/1" 
+            href="/#portfolio" 
             onClick={handleViewAllProjects}
             className="portal-btn bg-transparent border-2 border-portal text-portal hover:bg-portal/10 font-space font-medium px-6 py-3 rounded-md transition-all"
           >
@@ -81,32 +81,33 @@ const PortfolioSection = () => {
 };
 
 interface PortfolioCardProps {
-  index: number;
+  id: number;
   image: string;
   category: string;
-  categoryClass: string;
   title: string;
   description: string;
   technologies: string[];
-  techClass: string;
 }
 
 const PortfolioCard = ({ 
-  index,
+  id,
   image, 
   category, 
-  categoryClass, 
   title, 
   description, 
-  technologies, 
-  techClass 
+  technologies
 }: PortfolioCardProps) => {
   const [_, setLocation] = useLocation();
 
   const handleViewCaseStudy = (e: React.MouseEvent) => {
     e.preventDefault();
-    setLocation(`/blog/${index + 1}`);
+    setLocation(`/case-study/${id}`);
   };
+
+  // Determine category styling
+  const isDevOps = category === 'DevOps';
+  const categoryClass = isDevOps ? "bg-toxic/80" : "bg-portal/80";
+  const techClass = isDevOps ? "text-portal" : "text-toxic";
 
   return (
     <motion.div 
@@ -132,7 +133,7 @@ const PortfolioCard = ({
           ))}
         </div>
         <a 
-          href={`/blog/${index + 1}`}
+          href={`/case-study/${id}`}
           onClick={handleViewCaseStudy}
           className="font-code text-portal hover:text-toxic transition-colors text-sm flex items-center"
         >
@@ -145,63 +146,5 @@ const PortfolioCard = ({
     </motion.div>
   );
 };
-
-// Portfolio Data
-const portfolioProjects = [
-  {
-    image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "DevOps",
-    categoryClass: "bg-toxic/80",
-    title: "CloudNative Ecosystem",
-    description: "Implemented a complete Kubernetes-based infrastructure for a fintech startup, reducing deployment time by 80%.",
-    technologies: ["Kubernetes", "Terraform", "AWS"],
-    techClass: "text-portal"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Web3",
-    categoryClass: "bg-portal/80",
-    title: "MultiversX NFT Marketplace",
-    description: "Designed and implemented the infrastructure for a high-volume NFT marketplace handling 10,000+ daily transactions.",
-    technologies: ["MultiversX", "IPFS", "GraphQL"],
-    techClass: "text-toxic"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "DevOps",
-    categoryClass: "bg-toxic/80",
-    title: "CI/CD Pipeline Automation",
-    description: "Built a streamlined CI/CD pipeline for a SaaS company, enabling 30+ daily deployments with zero downtime.",
-    technologies: ["GitHub Actions", "Docker", "ArgoCD"],
-    techClass: "text-portal"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Web3",
-    categoryClass: "bg-portal/80",
-    title: "Solana Token Tracker",
-    description: "Developed a Discord bot for Solana communities, providing real-time alerts, wallet verification and community management.",
-    technologies: ["Solana", "Node.js", "Discord.js"],
-    techClass: "text-toxic"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "DevOps",
-    categoryClass: "bg-toxic/80",
-    title: "Observability Platform",
-    description: "Created a comprehensive monitoring solution for a microservices architecture, reducing incident response time by 65%.",
-    technologies: ["Prometheus", "Grafana", "ELK Stack"],
-    techClass: "text-portal"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1560732488-7b5f4d54f584?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Web3",
-    categoryClass: "bg-portal/80",
-    title: "Cross-Chain DeFi Platform",
-    description: "Engineered the backend infrastructure for a cross-chain DeFi protocol connecting MultiversX, Solana, Base, and TON.",
-    technologies: ["MultiversX", "Solana", "Base"],
-    techClass: "text-toxic"
-  }
-];
 
 export default PortfolioSection;
