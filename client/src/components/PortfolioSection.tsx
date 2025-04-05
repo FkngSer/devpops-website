@@ -1,9 +1,11 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useLocation } from 'wouter';
 
 const PortfolioSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [_, setLocation] = useLocation();
   
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -18,6 +20,11 @@ const PortfolioSection = () => {
         staggerChildren: 0.1
       }
     }
+  };
+  
+  const handleViewAllProjects = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setLocation('/blog/1');
   };
 
   return (
@@ -47,6 +54,7 @@ const PortfolioSection = () => {
           {portfolioProjects.map((project, index) => (
             <PortfolioCard
               key={index}
+              index={index}
               image={project.image}
               category={project.category}
               categoryClass={project.categoryClass}
@@ -59,7 +67,11 @@ const PortfolioSection = () => {
         </motion.div>
         
         <div className="flex justify-center mt-12">
-          <a href="#" className="portal-btn bg-transparent border-2 border-portal text-portal hover:bg-portal/10 font-space font-medium px-6 py-3 rounded-md transition-all">
+          <a 
+            href="/blog/1" 
+            onClick={handleViewAllProjects}
+            className="portal-btn bg-transparent border-2 border-portal text-portal hover:bg-portal/10 font-space font-medium px-6 py-3 rounded-md transition-all"
+          >
             View All Projects
           </a>
         </div>
@@ -69,6 +81,7 @@ const PortfolioSection = () => {
 };
 
 interface PortfolioCardProps {
+  index: number;
   image: string;
   category: string;
   categoryClass: string;
@@ -79,6 +92,7 @@ interface PortfolioCardProps {
 }
 
 const PortfolioCard = ({ 
+  index,
   image, 
   category, 
   categoryClass, 
@@ -87,6 +101,13 @@ const PortfolioCard = ({
   technologies, 
   techClass 
 }: PortfolioCardProps) => {
+  const [_, setLocation] = useLocation();
+
+  const handleViewCaseStudy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setLocation(`/blog/${index + 1}`);
+  };
+
   return (
     <motion.div 
       className="portal-card glass rounded-lg overflow-hidden transition-all hover:-translate-y-2"
@@ -106,11 +127,15 @@ const PortfolioCard = ({
         <h3 className="font-space text-xl font-medium mb-2">{title}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech, index) => (
-            <span key={index} className={`text-xs font-code bg-spaceblack px-2 py-1 rounded ${techClass}`}>{tech}</span>
+          {technologies.map((tech, techIndex) => (
+            <span key={techIndex} className={`text-xs font-code bg-spaceblack px-2 py-1 rounded ${techClass}`}>{tech}</span>
           ))}
         </div>
-        <a href="#" className="font-code text-portal hover:text-toxic transition-colors text-sm flex items-center">
+        <a 
+          href={`/blog/${index + 1}`}
+          onClick={handleViewCaseStudy}
+          className="font-code text-portal hover:text-toxic transition-colors text-sm flex items-center"
+        >
           View Case Study
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />

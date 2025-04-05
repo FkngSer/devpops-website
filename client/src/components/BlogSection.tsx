@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { blogPosts } from '../data/BlogData';
 import BlogPost from './BlogPost';
 
 const BlogSection = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [_, setLocation] = useLocation();
   
   const filteredPosts = activeCategory === 'all' 
     ? blogPosts 
@@ -17,6 +18,12 @@ const BlogSection = () => {
     { id: 'web3', label: 'Web3' },
     { id: 'blockchain', label: 'Blockchain' }
   ];
+  
+  const handleViewAllArticles = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveCategory('all');
+    // We're just staying on the current page and showing all articles
+  };
   
   return (
     <section id="blog" className="py-20 relative overflow-hidden">
@@ -89,7 +96,7 @@ const BlogSection = () => {
             transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setActiveCategory('all')}
+            onClick={handleViewAllArticles}
           >
             View All Articles
           </motion.a>
