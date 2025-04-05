@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import ThemeToggle from './ThemeToggle';
 
 interface HeaderProps {
   onMenuToggle: () => void;
@@ -31,11 +30,8 @@ const Header: FC<HeaderProps> = ({ onMenuToggle }) => {
             <a href="#contact" className="font-space bg-portal text-spaceblack px-4 py-2 rounded hover:bg-darkportal transition-colors" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }}>Get Started</a>
           </nav>
           
-          {/* Theme Toggle and Mobile Menu Button */}
-          <div className="flex items-center space-x-3">
-            <div className="hidden md:block">
-              <ThemeToggle />
-            </div>
+          {/* Mobile Menu Button */}
+          <div className="flex items-center">
             <button 
               id="menuBtn" 
               className="md:hidden text-cleanwhite focus:outline-none"

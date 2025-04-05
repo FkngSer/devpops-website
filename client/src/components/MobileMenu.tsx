@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -38,11 +37,6 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <a href="#blog" onClick={(e) => { e.preventDefault(); document.getElementById('blog')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Blog</a>
               <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space text-xl text-cleanwhite hover:text-portal transition-colors">Contact</a>
               <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); onClose(); }} className="font-space bg-portal text-spaceblack px-6 py-3 rounded hover:bg-darkportal transition-colors mt-4">Get Started</a>
-              
-              <div className="mt-8 flex flex-col items-center">
-                <div className="text-cleanwhite mb-2">Switch Theme</div>
-                <ThemeToggle />
-              </div>
             </nav>
           </div>
         </motion.div>

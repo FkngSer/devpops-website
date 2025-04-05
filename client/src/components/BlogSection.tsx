@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '@/hooks/use-theme';
 
 interface BlogPost {
   id: number;
@@ -71,7 +70,6 @@ const blogPosts: BlogPost[] = [
 
 const BlogSection = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const { theme } = useTheme();
   
   const filteredPosts = activeCategory === 'all' 
     ? blogPosts 

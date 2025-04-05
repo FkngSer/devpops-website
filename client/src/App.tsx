@@ -11,7 +11,6 @@ import BlogSection from "./components/BlogSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import PortalBackground from "./components/PortalBackground";
-import { ThemeProvider } from "./hooks/use-theme";
 import { useState } from "react";
 
 function App() {
@@ -23,26 +22,24 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <div className="min-h-screen bg-spaceblack font-sans">
-          <PortalBackground />
-          
-          <Header onMenuToggle={toggleMobileMenu} />
-          <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-          
-          <main className="pt-20">
-            <HeroSection />
-            <AboutSection />
-            <ServicesSection />
-            <PortfolioSection />
-            <BlogSection />
-            <ContactSection />
-          </main>
-          
-          <Footer />
-        </div>
-        <Toaster />
-      </ThemeProvider>
+      <div className="min-h-screen bg-spaceblack font-sans">
+        <PortalBackground />
+        
+        <Header onMenuToggle={toggleMobileMenu} />
+        <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+        
+        <main className="pt-20">
+          <HeroSection />
+          <AboutSection />
+          <ServicesSection />
+          <PortfolioSection />
+          <BlogSection />
+          <ContactSection />
+        </main>
+        
+        <Footer />
+      </div>
+      <Toaster />
     </QueryClientProvider>
   );
 }

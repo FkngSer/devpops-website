@@ -3,41 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* Rick theme (dark) - default */
-  .theme-rick {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    
-    --portal: 187 100% 40%;
-    --toxic: 83 57% 55%;
-    --warmred: 0 100% 71%;
-    --spaceblack: 0 0% 10%;
-    --cleanwhite: 0 0% 96%;
-    --darkportal: 187 100% 31%;
-    --darktoxic: 83 47% 44%;
-    --glass: 0 0% 100% / 0.1;
-    
-    --radius: 0.5rem;
-  }
-  
-  /* Morty theme (light) */
-  .theme-morty {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    
-    --portal: 40 100% 50%; /* Yellow portal */
-    --toxic: 35 97% 58%; /* Orange */
-    --warmred: 0 100% 71%; /* Keep accent */
-    --spaceblack: 43 33% 96%; /* Light beige background */
-    --cleanwhite: 0 0% 10%; /* Dark text */
-    --darkportal: 40 100% 45%; /* Darker yellow */
-    --darktoxic: 35 97% 48%; /* Darker orange */
-    --glass: 0 0% 0% / 0.1;
-    
-    --radius: 0.5rem;
-  }
-  
-  /* Default theme */
+  /* Dark theme (always on) */
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -62,10 +28,6 @@
   
   body {
     @apply bg-spaceblack text-cleanwhite font-sans transition-colors duration-300;
-  }
-  
-  /* Theme-specific background patterns */
-  .theme-rick body {
     background-image: 
       radial-gradient(rgba(151, 206, 76, 0.1) 1px, transparent 1px),
       radial-gradient(rgba(0, 181, 204, 0.1) 1px, transparent 1px);
@@ -73,33 +35,17 @@
     background-position: 0 0, 15px 15px;
   }
   
-  .theme-morty body {
-    background-image: 
-      radial-gradient(rgba(255, 152, 0, 0.1) 1px, transparent 1px),
-      radial-gradient(rgba(255, 199, 0, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px, 25px 25px;
-    background-position: 0 0, 15px 15px;
-  }
-  
-  /* Themed glass effect */
+  /* Glass effect */
   .glass {
-    @apply backdrop-blur-lg border transition-all duration-300;
-  }
-  
-  .theme-rick .glass {
-    @apply bg-spaceblack/60 border-white/10;
-  }
-  
-  .theme-morty .glass {
-    @apply bg-white/60 border-black/10;
+    @apply backdrop-blur-lg border transition-all duration-300 bg-spaceblack/60 border-white/10;
   }
   
   .portal-card {
     @apply relative overflow-hidden;
   }
   
-  /* Theme-specific portal effects */
-  .theme-rick .portal-card::before {
+  /* Portal effect */
+  .portal-card::before {
     content: '';
     @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] -z-10;
     background: conic-gradient(
@@ -110,23 +56,12 @@
     animation: portal 8s linear infinite;
   }
   
-  .theme-morty .portal-card::before {
-    content: '';
-    @apply absolute top-[-50%] left-[-50%] w-[200%] h-[200%] -z-10;
-    background: conic-gradient(
-      transparent, 
-      rgba(255, 199, 0, 0.2), 
-      transparent 30%
-    );
-    animation: portal 8s linear infinite;
-  }
-  
   .portal-btn {
     @apply relative overflow-hidden z-[1];
   }
   
-  /* Theme-specific button hover effects */
-  .theme-rick .portal-btn::after {
+  /* Button hover effect */
+  .portal-btn::after {
     content: '';
     @apply absolute top-0 -left-full w-full h-full -z-10;
     background: linear-gradient(
@@ -138,29 +73,13 @@
     transition: left 0.5s ease;
   }
   
-  .theme-morty .portal-btn::after {
-    content: '';
-    @apply absolute top-0 -left-full w-full h-full -z-10;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(0, 0, 0, 0.1),
-      transparent
-    );
-    transition: left 0.5s ease;
-  }
-  
   .portal-btn:hover::after {
     @apply left-full;
   }
   
-  /* Theme-specific neon effects */
-  .theme-rick .neon-border {
+  /* Neon effect */
+  .neon-border {
     box-shadow: 0 0 5px #00B5CC, 0 0 10px rgba(0, 181, 204, 0.5);
-  }
-  
-  .theme-morty .neon-border {
-    box-shadow: 0 0 5px #FFC700, 0 0 10px rgba(255, 199, 0, 0.5);
   }
   
   .tab-active {
