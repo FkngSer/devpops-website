@@ -1,62 +1,9 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { apiRequest } from '@/lib/queryClient';
-import { useToast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const { toast } = useToast();
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast({
-        title: "Form Error",
-        description: "Please fill out all fields",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    // Simulate form submission since email functionality isn't set up yet
-    setTimeout(() => {
-      toast({
-        title: "Contact Information Saved",
-        description: "Email functionality coming soon! Your information has been saved.",
-        variant: "default"
-      });
-      
-      // Reset the form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      setIsSubmitting(false);
-    }, 1000);
-  };
   
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -143,75 +90,67 @@ const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-space font-medium text-xl mb-4 text-toxic">Send Me a Message</h3>
-            <form onSubmit={handleSubmit}>
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="name" className="block font-code text-sm text-gray-400 mb-2">Your Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-spaceblack/50 border border-gray-700 rounded-md px-4 py-3 text-gray-300 focus:outline-none focus:border-portal transition-colors" 
-                    placeholder="John Doe" 
-                    required
-                  />
+            <h3 className="font-space font-medium text-xl mb-4 text-toxic">Message Me on Telegram</h3>
+            
+            <div className="space-y-6">
+              <p className="text-gray-300">
+                I prefer direct communication for discussing projects. Reach out to me on Telegram for:
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-8 h-8 rounded-full bg-portal/20 flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                    <svg className="w-4 h-4 text-portal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-space text-base text-portal">Project Inquiries</h4>
+                    <p className="text-gray-400 mt-1">Get a quote or discuss your DevOps or Web3 project requirements</p>
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block font-code text-sm text-gray-400 mb-2">Email Address</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-spaceblack/50 border border-gray-700 rounded-md px-4 py-3 text-gray-300 focus:outline-none focus:border-portal transition-colors" 
-                    placeholder="john@example.com" 
-                    required
-                  />
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 rounded-full bg-toxic/20 flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                    <svg className="w-4 h-4 text-toxic" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-space text-base text-toxic">Technical Consultations</h4>
+                    <p className="text-gray-400 mt-1">Get expert advice on blockchain tech, cloud architecture or CI/CD pipelines</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 rounded-full bg-warmred/20 flex items-center justify-center mt-1 mr-4 flex-shrink-0">
+                    <svg className="w-4 h-4 text-warmred" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-space text-base text-warmred">Collaboration Opportunities</h4>
+                    <p className="text-gray-400 mt-1">Discuss potential partnerships or collaboration on joint ventures</p>
+                  </div>
                 </div>
               </div>
               
-              <div className="mb-6">
-                <label htmlFor="subject" className="block font-code text-sm text-gray-400 mb-2">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  name="subject" 
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full bg-spaceblack/50 border border-gray-700 rounded-md px-4 py-3 text-gray-300 focus:outline-none focus:border-portal transition-colors" 
-                  placeholder="How can I help you?" 
-                  required
-                />
-              </div>
-              
-              <div className="mb-6">
-                <label htmlFor="message" className="block font-code text-sm text-gray-400 mb-2">Message</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows={5} 
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full bg-spaceblack/50 border border-gray-700 rounded-md px-4 py-3 text-gray-300 focus:outline-none focus:border-portal transition-colors" 
-                  placeholder="Tell me about your project..." 
-                  required
-                ></textarea>
-              </div>
-              
-              <div className="flex justify-end">
-                <button 
-                  type="submit" 
-                  className="portal-btn bg-toxic hover:bg-darktoxic text-spaceblack font-space font-medium px-6 py-3 rounded-md transition-all"
-                  disabled={isSubmitting}
+              <div className="mt-8 flex justify-center">
+                <a 
+                  href="https://t.me/devp0ps" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="portal-btn bg-portal hover:bg-portal/80 text-spaceblack font-space font-medium px-10 py-4 rounded-md transition-all flex items-center text-lg"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
+                  <i className="fab fa-telegram-plane mr-3 text-xl"></i>
+                  Message on Telegram
+                </a>
               </div>
-            </form>
+              
+              <p className="text-center text-gray-500 mt-6 text-sm">
+                @devp0ps — I typically respond within 24 hours
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>
