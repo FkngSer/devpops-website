@@ -148,7 +148,7 @@ const ContactSection = () => {
               </div>
               
               <p className="text-center text-gray-500 mt-6 text-sm">
-                @devp0ps — I typically respond within 24 hours
+                I typically respond within 24 hours
               </p>
             </div>
           </motion.div>
