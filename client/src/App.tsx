@@ -12,8 +12,11 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import PortalBackground from "./components/PortalBackground";
 import { useState } from "react";
+import { Route, Switch } from "wouter";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import NotFound from "./pages/not-found";
 
-function App() {
+function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -21,23 +24,35 @@ function App() {
   };
 
   return (
+    <div className="min-h-screen bg-spaceblack font-sans">
+      <PortalBackground />
+      
+      <Header onMenuToggle={toggleMobileMenu} />
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      
+      <main className="pt-20">
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <PortfolioSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
+      
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-spaceblack font-sans">
-        <PortalBackground />
-        
-        <Header onMenuToggle={toggleMobileMenu} />
-        <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-        
-        <main className="pt-20">
-          <HeroSection />
-          <AboutSection />
-          <ServicesSection />
-          <PortfolioSection />
-          <BlogSection />
-          <ContactSection />
-        </main>
-        
-        <Footer />
+      <div className="bg-spaceblack font-sans text-cleanwhite">
+        <Switch>
+          <Route path="/" component={HomePage} />
+          <Route path="/blog/:id" component={BlogDetailPage} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
       <Toaster />
     </QueryClientProvider>
